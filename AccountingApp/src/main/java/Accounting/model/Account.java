@@ -22,8 +22,9 @@ public class Account {
 	
 	public Account() {}
 	
-	public Account(String owner) {
+	public Account(String owner, long accountNumber) {
 		this.owner = owner;
+		this.accountNumber = accountNumber;
 	}
 	
 	public synchronized void deposit(double amount) {
@@ -62,11 +63,11 @@ public class Account {
 		this.owner = owner;
 	}
 
-	public double getBalance() {
+	public synchronized double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double deposit) {
+	public synchronized void setBalance(double deposit) {
 		this.balance = deposit;
 	}
 }
